@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Events</title>
+    <script src="../javascripts/navbar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../javascripts/getURLParameter.js"></script>
+    <link rel="stylesheet" href="../css/navbar.css" />
+</head>
+<body>
+<!--Navigation Bar ## START ##-->
+<div class="navigation">
+    <ul class="nav">
+        <li>
+            <a href="events.html">myRecruits</a>
+        </li>
+        <li>
+            <a href="newrecruit.html">newRecruit</a>
+        </li>
+    </ul>
+</div>
+<!--Navigation Bar ## END ##-->
+<a id="eventname"/>
+<a id="details"/>
+<a id="startdate"/>
+<a id="enddate"/>
+<a id="location"/>
+<table>
+
+</table>
+
+<script>
+    var clickedEvent = getUrlParameter('event');
+    console.log(clickedEvent);
+    $(document).ready(function () {
+        console.log("clickedEvent: " + clickedEvent);
+        $.getJSON( 'http://localhost:8080/event/v1?_id=' + clickedEvent)
+                .done(function( data ) {
+                    console.log(data);
+                    $("#eventname").text(data[0]._id);
+                    $("#details").text(data[0].details);
+                    $("#startdate").text(data[0].start_date);
+                    $("#enddate").text(data[0].end_date);
+                    $("#location").text(data[0].location);
+                });
+    });
+
+</script>
+</body>
+</html>

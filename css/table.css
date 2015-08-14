@@ -1,0 +1,15 @@
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin-left: 15%;
+    position: fixed;
+    margin-top: 10%;
+}
+th, td {
+    padding: 0.25rem;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+tbody tr:nth-child(odd) {
+    background: #eee;
+}
