@@ -29,8 +29,7 @@
 <!--Navigation Bar ## END ##-->
 <table id="events_table" border='1'>
     <tr>
-        <th>Last Name</th>
-        <th>First Name</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Alternate Email</th>
         <th>Phone Number</th>
@@ -44,10 +43,9 @@
                     console.log(data);
                     var trHTML = '';
                     $.each( data, function( i, recruit ) {
-                        trHTML += '<tr><td><a href="eventdetails.html?recruit=' + recruit._id + '">' + recruit._id + '</a></td>' +
-                                '<td>' + recruit.surname + '</td>' +
-                                '<td>' + recruit.forename + '</td>' +
-                                '<td>' + recruit.email + '</td>' +
+                        trHTML += '<tr><td><a href="eventdetails.html?recruit=' + recruit._id + '">' + recruit.surname + ", " + recruit.forename + '</a></td>' +
+                                '<td>' + recruit.alt_email + '</td>' +
+                                '<td>' + recruit._id + '</td>' + // email
                                 '<td>' + recruit.phone + '</td>' +
                                 '<td>' + recruit.recruiter + '</td>' +
                                 '</tr>';
